@@ -1,0 +1,1 @@
+include ':app', ':core', ':qq', ':weixin', ':weibo', ':baidu', ':twitter', ':facebook'

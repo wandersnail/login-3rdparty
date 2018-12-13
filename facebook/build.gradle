@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "$facebook_version"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    //强制所有的第三方包使用指定版本的support包：
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "$support_lib_version"
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly "com.android.support:support-v4:$support_lib_version"
+    compileOnly "com.android.support:customtabs:$support_lib_version"
+    implementation project(':core')
+    implementation 'com.facebook.android:facebook-login:4.39.0'
+}
+
+// 打包源码
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+publish {
+    repoName="android"//仓库名
+    userOrg = 'wandersnail' //bintray.com用户名  
+    groupId = 'com.github.wandersnail' //jcenter上的路径  
+    artifactId = 'login-3rdparty-facebook' //项目名称  
+    publishVersion = "$facebook_version" //版本号  
+    desc = 'facebook登录'
+    website = 'https://github.com/wandersnail'
+}

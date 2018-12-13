@@ -1,0 +1,6 @@
+<resources>
+    <string name="tpl_login_fail">Login Failed</string>
+    <string name="tpl_wx_not_install">Wechat not installed</string>
+    <string name="tpl_author_denied">Authorization Denied</string>
+    <string name="tpl_login">Login</string>
+</resources>
