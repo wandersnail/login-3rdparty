@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.facebook.*;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.snail.login3rdparty.BaseLogin;
@@ -31,10 +30,6 @@ public class FacebookLogin extends BaseLogin {
     
     public FacebookLogin(@NonNull Context context) {
         super(context);
-        String appid = LoginUtils.getApplicationMetaValue(context, "com.facebook.sdk.ApplicationId");
-        FacebookSdk.setApplicationId(appid);
-        FacebookSdk.sdkInitialize(context.getApplicationContext());
-        AppEventsLogger.activateApp(context.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FbCallback());
     }

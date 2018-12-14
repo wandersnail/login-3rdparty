@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.snail.login3rdparty.qq">
     <application android:supportsRtl="true">
-        <meta-data android:name="TENCENT_APPID" android:value="${tencent_appid}" />
+        <meta-data android:name="TENCENT_APPID" android:value="tencent${tencent_appid}" />
         <activity
                 android:name="com.tencent.connect.common.AssistActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"

@@ -29,6 +29,9 @@ public class QQLogin extends BaseLogin {
     public QQLogin(@NonNull Context context) {
         super(context);
         String appid = LoginUtils.getApplicationMetaValue(context, "TENCENT_APPID");
+        if (appid != null && appid.length() > "tencent".length()) {
+            appid = appid.substring("tencent".length());
+        }
         tencent = Tencent.createInstance(TextUtils.isEmpty(appid) ? "222222" : appid, context.getApplicationContext());
     }
     

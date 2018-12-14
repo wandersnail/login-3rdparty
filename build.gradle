@@ -50,3 +50,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// 需要更新到的bintray的就设置成true
+tasks.getByPath(":core:bintrayUpload").enabled = true 
+tasks.getByPath(":qq:bintrayUpload").enabled = true
+tasks.getByPath(":weixin:bintrayUpload").enabled = true
+tasks.getByPath(":weibo:bintrayUpload").enabled = true
+tasks.getByPath(":baidu:bintrayUpload").enabled = true
+tasks.getByPath(":twitter:bintrayUpload").enabled = true
+tasks.getByPath(":facebook:bintrayUpload").enabled = true

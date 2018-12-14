@@ -2,7 +2,7 @@
           package="com.snail.login3rdparty.facebook">
     <application android:supportsRtl="true">
         <meta-data android:name="com.facebook.sdk.ApplicationId"
-                   android:value="${facebook_appid}" />
+                   android:value="fb${facebook_appid}" />
         <activity android:name="com.facebook.FacebookActivity"
                   android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
                   android:label="Facebook Login" />

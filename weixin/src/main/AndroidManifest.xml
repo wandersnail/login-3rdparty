@@ -1,16 +1,17 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.snail.login3rdparty.weixin">
+<manifest package="com.snail.login3rdparty.weixin"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application android:supportsRtl="true">
         <meta-data
-                android:name="WEIXIN_APPID"
-                android:value="${weixin_appid}"/>
+            android:name="WEIXIN_APPID"
+            android:value="${weixin_appid}"/>
         <meta-data
-                android:name="WEIXIN_SECRET"
-                android:value="${weixin_secret}"/>
-        
+            android:name="WEIXIN_SECRET"
+            android:value="${weixin_secret}"/>
+
         <activity
-                android:theme="@android:style/Theme.NoDisplay"
-                android:name="${packname}.wxapi.WXEntryActivity"
-                android:exported="true"/>
+            android:name="${packname}.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay"/>
     </application>
 </manifest>

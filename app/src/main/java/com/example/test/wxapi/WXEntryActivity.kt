@@ -1,4 +1,4 @@
-package com.advanpro.unifit.wxapi
+package com.example.test.wxapi
 
 import com.snail.login3rdparty.weixin.WXEventActivity
 

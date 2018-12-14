@@ -42,6 +42,6 @@ publish {
     groupId = 'com.github.wandersnail' //jcenter上的路径  
     artifactId = 'login-3rdparty-core' //项目名称  
     publishVersion = "$core_version" //版本号  
-    desc = '第三方登录'
+    desc = '第三方登录核心'
     website = 'https://github.com/wandersnail'
 }

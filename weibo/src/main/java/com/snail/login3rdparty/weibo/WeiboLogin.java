@@ -31,6 +31,9 @@ public class WeiboLogin extends BaseLogin {
     public WeiboLogin(@NonNull Context context, String redirectUrl) {
         super(context);
         String appkey = LoginUtils.getApplicationMetaValue(context, "WEIBO_APPKEY");
+        if (appkey != null && appkey.length() > "weibo".length()) {
+            appkey = appkey.substring("weibo".length());
+        }
         WbSdk.install(context, new AuthInfo(context, appkey == null ? "" : appkey, redirectUrl, SCOPE));
     }
     

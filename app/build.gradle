@@ -7,7 +7,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        applicationId "com.advanpro.unifit"
+        applicationId "com.example.test"
         versionCode 1
         versionName "1.0"
         ndk {
@@ -16,7 +16,7 @@ android {
     }
     buildTypes {
         debug {
-            addManifestPlaceholders([packname: "com.advanpro.unifit"])
+            addManifestPlaceholders([packname: "com.example.test"])
             addManifestPlaceholders([tencent_appid: "1106841690"])
             addManifestPlaceholders([baidu_apikey: "u10rwmxIpFG8YTXYaGXSI6lV"])
             addManifestPlaceholders([weibo_appkey: "85283146", weibo_channel: "weibo"])
@@ -25,7 +25,7 @@ android {
             addManifestPlaceholders([facebook_appid: "1852628958197307"])
         }
         release {
-            addManifestPlaceholders([packname: "com.advanpro.unifit"])
+            addManifestPlaceholders([packname: "com.example.test"])
             addManifestPlaceholders([tencent_appid: "1106841690"])
             addManifestPlaceholders([baidu_apikey: "u10rwmxIpFG8YTXYaGXSI6lV"])
             addManifestPlaceholders([weibo_appkey: "85283146", weibo_channel: "weibo"])

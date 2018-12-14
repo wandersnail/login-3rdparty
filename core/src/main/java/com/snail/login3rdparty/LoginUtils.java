@@ -78,7 +78,8 @@ public class LoginUtils {
     public static String getApplicationMetaValue(Context context, String name) {
         try {
             ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            return info.metaData.getString(name);
+            Object value = info.metaData.get(name);
+            return value == null ? null : value.toString();
         } catch (Exception e) {
             e.printStackTrace();
         }

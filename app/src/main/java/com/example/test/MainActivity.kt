@@ -1,4 +1,4 @@
-package com.advanpro.unifit
+package com.example.test
 
 import android.Manifest
 import android.content.Intent
@@ -46,36 +46,36 @@ class MainActivity : AppCompatActivity() {
         baiduLogin = BaiduLogin(this)
         twitterLogin = TwitterLogin(this)
         facebookLogin = FacebookLogin(this)
-        btnWeixin.setOnClickListener { 
+        btnWeixin.setOnClickListener {
             clearText()
             weixinLogin?.login(this, loginCallback)
         }
-        btnQQ.setOnClickListener { 
+        btnQQ.setOnClickListener {
             clearText()
             qqLogin?.login(this, loginCallback)
         }
-        btnWeibo.setOnClickListener { 
+        btnWeibo.setOnClickListener {
             clearText()
             weiboLogin?.login(this, loginCallback)
         }
-        btnBaidu.setOnClickListener { 
+        btnBaidu.setOnClickListener {
             clearText()
             baiduLogin?.login(this, loginCallback)
         }
-        btnTwitter.setOnClickListener { 
+        btnTwitter.setOnClickListener {
             clearText()
             twitterLogin?.login(this, loginCallback)
         }
-        btnFacebook.setOnClickListener { 
+        btnFacebook.setOnClickListener {
             clearText()
             facebookLogin?.login(this, loginCallback)
         }
     }
-    
+
     private fun clearText() {
         tv.text = ""
     }
-    
+
     private val loginCallback = object : LoginCallback {
         override fun onSuccess(loginType: Int, info: UserInfo, origin: JSONObject) {
             val type = when (loginType) {

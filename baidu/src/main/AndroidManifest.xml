@@ -3,6 +3,6 @@
     <application android:supportsRtl="true">
         <meta-data
                 android:name="BAIDU_APIKEY"
-                android:value="${baidu_apikey}"/>
+                android:value="A${baidu_apikey}"/>
     </application>
 </manifest>

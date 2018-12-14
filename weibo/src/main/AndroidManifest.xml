@@ -3,7 +3,7 @@
     <application android:supportsRtl="true">
         <meta-data
                 android:name="WEIBO_APPKEY"
-                android:value="${weibo_appkey}"/>
+                android:value="weibo${weibo_appkey}"/>
         <meta-data
                 android:name="WEIBO_CHANNEL"
                 android:value="${weibo_channel}"/>
