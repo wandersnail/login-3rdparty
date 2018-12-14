@@ -14,19 +14,19 @@ import org.json.JSONObject;
  */
 
 public abstract class BaseLogin {
-    protected static final int QQ = 1;
-    protected static final int WEI_XIN = 2;
-    protected static final int WEI_BO = 3;
-    protected static final int BAI_DU = 4;
-    protected static final int FACEBOOK = 5;
-    protected static final int TWITTER = 6;
+    public static final int QQ = 1;
+    public static final int WEI_XIN = 2;
+    public static final int WEI_BO = 3;
+    public static final int BAI_DU = 4;
+    public static final int FACEBOOK = 5;
+    public static final int TWITTER = 6;
     protected LoginCallback callback;
     protected Context context;
     protected Handler mainHandler;
 
-    protected BaseLogin(Context context) {
+    protected BaseLogin(@NonNull Context context) {
         this.context = context.getApplicationContext();
-        Utils.updateResourcesLocale(context);
+        LoginUtils.updateResourcesLocale(context);
         mainHandler = new Handler(Looper.getMainLooper());
     }
 

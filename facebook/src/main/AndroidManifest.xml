@@ -2,7 +2,7 @@
           package="com.snail.login3rdparty.facebook">
     <application android:supportsRtl="true">
         <meta-data android:name="com.facebook.sdk.ApplicationId"
-                   android:value="@string/facebook_appid" />
+                   android:value="${facebook_appid}" />
         <activity android:name="com.facebook.FacebookActivity"
                   android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
                   android:label="Facebook Login" />
@@ -13,7 +13,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="@string/facebook_login_scheme" />
+                <data android:scheme="fb${facebook_appid}" />
             </intent-filter>
         </activity>
     </application>

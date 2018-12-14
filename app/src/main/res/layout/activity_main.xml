@@ -1,90 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/btnQQ"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
-                android:textSize="12sp"
                 android:padding="0dp"
                 android:text="QQ"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
+
             <Button
                 android:id="@+id/btnWeixin"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
-                android:textSize="12sp"
                 android:padding="0dp"
                 android:text="微信"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
+
             <Button
                 android:id="@+id/btnWeibo"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
                 android:padding="0dp"
-                android:textSize="12sp"
                 android:text="微博"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
+
             <Button
                 android:id="@+id/btnBaidu"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
                 android:padding="0dp"
-                android:textSize="12sp"
                 android:text="百度"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
+
             <Button
                 android:id="@+id/btnTwitter"
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
                 android:padding="0dp"
                 android:text="Twitter"
-                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
+
             <Button
                 android:id="@+id/btnFacebook"
+                android:layout_width="16dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
                 android:minWidth="0dp"
                 android:padding="0dp"
                 android:text="Facebook"
-                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="40dp"/>
+                android:textSize="13sp"/>
         </LinearLayout>
-        
+
         <TextView
-                android:text="用户信息:"
-                android:textSize="16sp"
-                android:layout_margin="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="用户信息:"
+            android:textSize="16sp"/>
+
         <ImageView
-                android:id="@+id/iv"
-                android:layout_marginStart="10dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+            android:id="@+id/iv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"/>
+
         <TextView
-                android:id="@+id/tv"
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 </ScrollView>

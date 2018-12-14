@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.facebook.*;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.snail.login3rdparty.BaseLogin;
 import com.snail.login3rdparty.LoginCallback;
+import com.snail.login3rdparty.LoginUtils;
 import com.snail.login3rdparty.UserInfo;
-import com.snail.login3rdparty.Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,8 +29,12 @@ public class FacebookLogin extends BaseLogin {
     private static final String FIGURE_URL_PATTERN = "http://graph.facebook.com/%s/picture?type=large";
     private CallbackManager callbackManager;
     
-    public FacebookLogin(Context context) {
+    public FacebookLogin(@NonNull Context context) {
         super(context);
+        String appid = LoginUtils.getApplicationMetaValue(context, "com.facebook.sdk.ApplicationId");
+        FacebookSdk.setApplicationId(appid);
+        FacebookSdk.sdkInitialize(context.getApplicationContext());
+        AppEventsLogger.activateApp(context.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FbCallback());
     }
@@ -74,10 +79,10 @@ public class FacebookLogin extends BaseLogin {
                                     }
                                     FacebookLogin.this.onSuccess(info, json);
                                 } catch (JSONException e) {
-                                    FacebookLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                                    FacebookLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                                 }
                             } else {
-                                FacebookLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                                FacebookLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                             }
                         }
                     }).start();                    

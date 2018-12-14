@@ -1,5 +1,7 @@
 package com.snail.login3rdparty;
 
+import android.support.annotation.NonNull;
+
 import org.json.JSONObject;
 
 /**
@@ -8,7 +10,12 @@ import org.json.JSONObject;
  */
 
 public interface LoginCallback {
-    void onSuccess(int loginType, UserInfo info, JSONObject origin);
+    /**
+     * 成功回调
+     * @param loginType {@link BaseLogin#QQ}, {@link BaseLogin#WEI_XIN}, {@link BaseLogin#WEI_BO}, {@link BaseLogin#BAI_DU}, 
+     * {@link BaseLogin#TWITTER}, {@link BaseLogin#FACEBOOK}
+     */
+    void onSuccess(int loginType, @NonNull UserInfo info, @NonNull JSONObject origin);
     void onCancel();
     void onError(int errorCode, String errorDetail);
 }

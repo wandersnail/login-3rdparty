@@ -1,6 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.snail.login3rdparty.weixin">
     <application android:supportsRtl="true">
+        <meta-data
+                android:name="WEIXIN_APPID"
+                android:value="${weixin_appid}"/>
+        <meta-data
+                android:name="WEIXIN_SECRET"
+                android:value="${weixin_secret}"/>
         
+        <activity
+                android:theme="@android:style/Theme.NoDisplay"
+                android:name="${packname}.wxapi.WXEntryActivity"
+                android:exported="true"/>
     </application>
 </manifest>

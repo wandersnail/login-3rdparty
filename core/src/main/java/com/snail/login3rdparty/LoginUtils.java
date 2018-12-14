@@ -19,7 +19,7 @@ import java.util.Locale;
  * 功能: 工具类
  */
 
-public class Utils {
+public class LoginUtils {
     public static void updateResourcesLocale(Context context) {
         Configuration config = context.getResources().getConfiguration();
         Locale locale = Locale.getDefault();
@@ -78,8 +78,7 @@ public class Utils {
     public static String getApplicationMetaValue(Context context, String name) {
         try {
             ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            Object value = info.metaData.get(name);
-            return value == null ? null : value.toString();
+            return info.metaData.getString(name);
         } catch (Exception e) {
             e.printStackTrace();
         }

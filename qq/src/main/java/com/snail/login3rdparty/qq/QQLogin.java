@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.snail.login3rdparty.BaseLogin;
 import com.snail.login3rdparty.LoginCallback;
 import com.snail.login3rdparty.UserInfo;
-import com.snail.login3rdparty.Utils;
+import com.snail.login3rdparty.LoginUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
@@ -26,9 +26,9 @@ public class QQLogin extends BaseLogin {
     private Tencent tencent;
     private String scope;
 
-    public QQLogin(Context context) {
+    public QQLogin(@NonNull Context context) {
         super(context);
-        String appid = Utils.getString(context, "tencent_appid");
+        String appid = LoginUtils.getApplicationMetaValue(context, "TENCENT_APPID");
         tencent = Tencent.createInstance(TextUtils.isEmpty(appid) ? "222222" : appid, context.getApplicationContext());
     }
     
@@ -59,12 +59,12 @@ public class QQLogin extends BaseLogin {
         @Override
         public void onComplete(Object response) {
             if (null == response) {
-                QQLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                QQLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                 return;
             }
             JSONObject jsonResponse = (JSONObject) response;
             if (jsonResponse.length() == 0) {
-                QQLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                QQLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                 return;
             }
             doComplete(jsonResponse);            
@@ -73,7 +73,7 @@ public class QQLogin extends BaseLogin {
         private void doComplete(final JSONObject values) {
             String openid = values.optString("openid");
             if (TextUtils.isEmpty(openid)) {
-                QQLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                QQLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
             } else {
                 final UserInfo info = new UserInfo();
                 info.id = openid;
@@ -121,7 +121,7 @@ public class QQLogin extends BaseLogin {
                     };
                     new com.tencent.connect.UserInfo(context, tencent.getQQToken()).getUserInfo(listener);
                 } else {
-                    QQLogin.this.onError(8888, Utils.getString(context, "tpl_login_fail"));
+                    QQLogin.this.onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                 }
             }
         }
@@ -147,7 +147,7 @@ public class QQLogin extends BaseLogin {
                 tencent.setOpenId(openId);
             }
         } catch(Exception ignored) {
-            onError(8888, Utils.getString(context, "tpl_login_fail"));
+            onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
         }
     }
 

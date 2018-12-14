@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.snail.login3rdparty.weibo">
     <application android:supportsRtl="true">
-        
+        <meta-data
+                android:name="WEIBO_APPKEY"
+                android:value="${weibo_appkey}"/>
+        <meta-data
+                android:name="WEIBO_CHANNEL"
+                android:value="${weibo_channel}"/>
     </application>
 </manifest>

@@ -14,13 +14,7 @@ import org.json.JSONObject;
  * 时间: 2017/9/28 15:41
  * 功能: 微信登录
  * 需要在app包名目录下建立wxapi包，并在其中新建WXEntryActivity，继承自WXEventActivity，内容不需要写。
- * 然后在AndroidManifest.xml添加如下：
- &lt;activity
- android:theme="@android:style/Theme.NoDisplay"
- android:name=".wxapi.WXEntryActivity"
- android:exported="true"/&gt;
  */
-
 public class WeixinLogin extends BaseLogin {
     private String appid;
     private String secret;
@@ -28,8 +22,14 @@ public class WeixinLogin extends BaseLogin {
 
     public WeixinLogin(@NonNull Context context) {
         super(context);
-        appid = Utils.getString(context, "weixin_appid");
-        secret = Utils.getString(context, "weixin_secret");
+        appid = LoginUtils.getApplicationMetaValue(context, "WEIXIN_APPID");
+        secret = LoginUtils.getApplicationMetaValue(context, "WEIXIN_SECRET");
+        if (appid == null) {
+            appid = "";
+        }
+        if (secret == null) {
+            secret = "";
+        }
     }
     
     @Override
@@ -37,7 +37,7 @@ public class WeixinLogin extends BaseLogin {
         super.login(activity, callback);     
         IWXAPI api = WXAPIFactory.createWXAPI(activity, appid);
         if (!api.isWXAppInstalled()) {
-            onError(8888, Utils.getString(context, "tpl_wx_not_install"));
+            onError(8888, LoginUtils.getString(context, "tpl_wx_not_install"));
         } else {
             respCallback = new RespCallback();
             api.registerApp(appid);
@@ -56,21 +56,24 @@ public class WeixinLogin extends BaseLogin {
                 if ("third_login_state".equals(resp.state)) {
                     requestUserInfo(resp.code);
                 } else {
-                    onError(baseResp.errCode, Utils.getString(context, "tpl_login_fail"));
+                    onError(baseResp.errCode, LoginUtils.getString(context, "tpl_login_fail"));
                 }
             } else {
                 switch (baseResp.errCode) {
                     case BaseResp.ErrCode.ERR_UNSUPPORT:
-                        onError(baseResp.errCode, Utils.getString(context, "tpl_author_denied"));
+                        onError(baseResp.errCode, LoginUtils.getString(context, "tpl_not_support"));
                         break;
                     case BaseResp.ErrCode.ERR_USER_CANCEL:
                         onCancel();
                         break;
                     case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                        onError(baseResp.errCode, Utils.getString(context, "tpl_author_denied"));
+                        onError(baseResp.errCode, LoginUtils.getString(context, "tpl_author_denied"));
+                        break;
+                    case BaseResp.ErrCode.ERR_BAN:
+                        onError(baseResp.errCode, LoginUtils.getString(context, "tpl_packname_or_sign_discrepancy"));
                         break;
                     default:
-                        onError(baseResp.errCode, Utils.getString(context, "tpl_login_fail"));
+                        onError(baseResp.errCode, LoginUtils.getString(context, "tpl_login_fail"));
                         break;
                 }
             }
@@ -85,7 +88,7 @@ public class WeixinLogin extends BaseLogin {
             @Override
             public void run() {
                 try {
-                    String tokenResp = Utils.request(url);
+                    String tokenResp = LoginUtils.request(url);
                     JSONObject tokenJson = new JSONObject(tokenResp);
                     //获取userInfo
                     String userInfoUrlPattern = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s";
@@ -99,7 +102,7 @@ public class WeixinLogin extends BaseLogin {
                             }
                         });
                     }
-                    String infoResp = Utils.request(String.format(userInfoUrlPattern, accessToken, openid));
+                    String infoResp = LoginUtils.request(String.format(userInfoUrlPattern, accessToken, openid));
                     JSONObject infoJson = new JSONObject(infoResp);
                     UserInfo info = new UserInfo();
                     info.id = infoJson.getString("unionid");
@@ -127,7 +130,7 @@ public class WeixinLogin extends BaseLogin {
                     onSuccess(info, infoJson);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    onError(8888, Utils.getString(context, "tpl_login_fail"));
+                    onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                 }
             }
         }.start();

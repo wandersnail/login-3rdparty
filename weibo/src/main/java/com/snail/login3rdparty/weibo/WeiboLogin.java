@@ -10,7 +10,7 @@ import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.snail.login3rdparty.BaseLogin;
 import com.snail.login3rdparty.LoginCallback;
 import com.snail.login3rdparty.UserInfo;
-import com.snail.login3rdparty.Utils;
+import com.snail.login3rdparty.LoginUtils;
 import org.json.JSONObject;
 
 /**
@@ -24,17 +24,14 @@ public class WeiboLogin extends BaseLogin {
     private static final String GET_USER_INFO_URL_PATTERN = "https://api.weibo.com/2/users/show.json?access_token=%s&uid=%s";
     private SsoHandler ssoHandler;
     
-    public WeiboLogin(Context context) {
+    public WeiboLogin(@NonNull Context context) {
         this(context, REDIRECT_URL);
     }
     
-    public WeiboLogin(Context context, String redirectUrl) {
+    public WeiboLogin(@NonNull Context context, String redirectUrl) {
         super(context);
-        String appkey = Utils.getString(context, "weibo_appkey");
-        if (appkey.isEmpty()) {
-            appkey = Utils.getApplicationMetaValue(context, "WEIBO_APPKEY");
-        }
-        WbSdk.install(context, new AuthInfo(this.context, appkey == null ? "" : appkey, redirectUrl, SCOPE));
+        String appkey = LoginUtils.getApplicationMetaValue(context, "WEIBO_APPKEY");
+        WbSdk.install(context, new AuthInfo(context, appkey == null ? "" : appkey, redirectUrl, SCOPE));
     }
     
     @Override
@@ -42,6 +39,10 @@ public class WeiboLogin extends BaseLogin {
         super.login(activity, callback);
         ssoHandler = new SsoHandler(activity);
         ssoHandler.authorize(new SelfWbAuthListener());
+    }
+    
+    public void logout() {
+        AccessTokenKeeper.clear(context.getApplicationContext());
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -81,7 +82,7 @@ public class WeiboLogin extends BaseLogin {
                     public void run() {
                         try {
                             //获取用户信息
-                            String infoJsonStr = Utils.request(String.format(GET_USER_INFO_URL_PATTERN, token.getToken(), token.getUid()));
+                            String infoJsonStr = LoginUtils.request(String.format(GET_USER_INFO_URL_PATTERN, token.getToken(), token.getUid()));
                             JSONObject infoJson = new JSONObject(infoJsonStr);
                             if (!isError(infoJson)) {
                                 UserInfo info = new UserInfo();
@@ -98,14 +99,19 @@ public class WeiboLogin extends BaseLogin {
                                 }
                                 info.figureUrl = figureUrl;
                                 WeiboLogin.this.onSuccess(info, infoJson);
+                                return;
                             }
-                            onError(8888, Utils.getString(context, "tpl_login_fail"));
+                            onError(8888, LoginUtils.getString(context, "tpl_login_fail"));
                         } catch (Exception e) {
                             e.printStackTrace();
                             onError(8888, e.toString());
                         }
                     }
                 }).start();
+            } else {
+                //token失效的话，清除后，重新登录
+                logout();
+                ssoHandler.authorize(new SelfWbAuthListener());
             }
         }
 

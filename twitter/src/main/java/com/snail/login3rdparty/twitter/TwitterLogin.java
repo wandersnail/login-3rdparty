@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import com.snail.login3rdparty.BaseLogin;
 import com.snail.login3rdparty.LoginCallback;
 import com.snail.login3rdparty.UserInfo;
-import com.snail.login3rdparty.Utils;
+import com.snail.login3rdparty.LoginUtils;
 import com.twitter.sdk.android.core.*;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.core.models.User;
@@ -28,12 +28,13 @@ import java.lang.reflect.Field;
 public class TwitterLogin extends BaseLogin {
     private TwitterLoginButton btnLogin;
     
-    public TwitterLogin(Context context) {
+    public TwitterLogin(@NonNull Context context) {
         super(context);
+        String apikey = LoginUtils.getApplicationMetaValue(context, "TWITTER_APIKEY");
+        String secret = LoginUtils.getApplicationMetaValue(context, "TWITTER_SECRET");
         TwitterConfig config = new TwitterConfig.Builder(context.getApplicationContext())
                 .logger(new DefaultLogger(Log.DEBUG))
-                .twitterAuthConfig(new TwitterAuthConfig(Utils.getString(context, "twitter_apikey"), 
-                        Utils.getString(context, "twitter_secret")))
+                .twitterAuthConfig(new TwitterAuthConfig(apikey == null ? "" : apikey, secret == null ? "" : secret))
                 .debug(true)
                 .build();
         Twitter.initialize(config);
@@ -79,7 +80,7 @@ public class TwitterLogin extends BaseLogin {
                 if (error.contains("request was canceled")) {
                     onCancel();
                 } else if (error.contains("bundle incomplete")) {
-                    onError(8888, Utils.getString(context, "tpl_author_denied"));
+                    onError(8888, LoginUtils.getString(context, "tpl_author_denied"));
                 } else {
                     onError(8888, error);
                 }

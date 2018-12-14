@@ -3,4 +3,6 @@
     <string name="tpl_author_denied">授權被拒絕</string>
     <string name="tpl_wx_not_install">您尚未安裝微信</string>
     <string name="tpl_login">登錄</string>
+    <string name="tpl_not_support">不支持</string>
+    <string name="tpl_packname_or_sign_discrepancy">包名或簽名不符</string>
 </resources>

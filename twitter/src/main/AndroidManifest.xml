@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.snail.login3rdparty.twitter">
     <application android:supportsRtl="true">
-        
+        <meta-data
+                android:name="TWITTER_APIKEY"
+                android:value="${twitter_apikey}"/>
+        <meta-data
+                android:name="TWITTER_SECRET"
+                android:value="${twitter_secret}"/>
     </application>
 </manifest>

@@ -3,4 +3,6 @@
     <string name="tpl_wx_not_install">Wechat not installed</string>
     <string name="tpl_author_denied">Authorization Denied</string>
     <string name="tpl_login">Login</string>
+    <string name="tpl_not_support">Not support</string>
+    <string name="tpl_packname_or_sign_discrepancy">Package name or signature discrepancy</string>
 </resources>
