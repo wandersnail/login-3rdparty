@@ -76,7 +76,7 @@ allprojects {
 ![image](https://github.com/wandersnail/login-3rdparty/blob/master/screenshot/0d12b411b69c21f97460983f0e22280e5ec424032.jpg)
 
 ## 示例apk下载
-[![](https://img.shields.io/badge/Download-APK-blue.svg)](https://github.com/wandersnail/login-3rdparty/blob/master/demo.apk)
+[![](https://img.shields.io/badge/Download-APK-blue.svg)](https://github.com/wandersnail/login-3rdparty/raw/master/demo.apk)
 
 ## 使用代码示例
 ```
