@@ -10,7 +10,7 @@ buildscript {
         support_lib_version = '28.0.0'
         core_version = '1.0.0'
         qq_version = '1.0.0'
-        baidu_version = '1.0.0'
+        baidu_version = '1.0.1'
         weixin_version = '1.0.0'
         weibo_version = '1.0.0'
         twitter_version = '1.0.0'
@@ -52,10 +52,10 @@ task clean(type: Delete) {
 }
 
 // 需要更新到的bintray的就设置成true
-tasks.getByPath(":core:bintrayUpload").enabled = true 
-tasks.getByPath(":qq:bintrayUpload").enabled = true
-tasks.getByPath(":weixin:bintrayUpload").enabled = true
-tasks.getByPath(":weibo:bintrayUpload").enabled = true
+tasks.getByPath(":core:bintrayUpload").enabled = false 
+tasks.getByPath(":qq:bintrayUpload").enabled = false
+tasks.getByPath(":weixin:bintrayUpload").enabled = false
+tasks.getByPath(":weibo:bintrayUpload").enabled = false
 tasks.getByPath(":baidu:bintrayUpload").enabled = true
-tasks.getByPath(":twitter:bintrayUpload").enabled = true
-tasks.getByPath(":facebook:bintrayUpload").enabled = true
+tasks.getByPath(":twitter:bintrayUpload").enabled = false
+tasks.getByPath(":facebook:bintrayUpload").enabled = false

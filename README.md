@@ -2,13 +2,13 @@
 第三方登录库，集合微信、QQ、微博、百度、Twitter、Facebook
 
 ## 代码托管
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-core/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-core/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-qq/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-qq/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weixin/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-weixin/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weibo/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-weibo/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-baidu/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-baidu/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-twitter/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-twitter/_latestVersion)
-[![Download](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-facebook/images/download.svg) ](https://bintray.com/wandersnail/android/login-3rdparty-facebook/_latestVersion)
+**Core**[![Core](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-core/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-core/_latestVersion)
+**QQ**[![QQ](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-qq/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-qq/_latestVersion)
+**微信**[![微信](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weixin/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weixin/_latestVersion)
+**微博**[![微博](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weibo/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weibo/_latestVersion)
+**百度**[![百度](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-baidu/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-baidu/_latestVersion)
+**Twitter**[![Twitter](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-twitter/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-twitter/_latestVersion)
+**Facebook**[![Facebook](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-facebook/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-facebook/_latestVersion)
 
 ## 使用
 
@@ -57,7 +57,7 @@ allprojects {
 	repositories {
 		...
 		maven { url 'https://dl.bintray.com/wandersnail/android/' }
-		maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+		maven { url "https://dl.bintray.com/thelasterstar/maven/" }//新浪微博用到的仓库
 	}
 }
 ``` 
@@ -75,7 +75,10 @@ allprojects {
 5. 其他平台以上就可以了，微信还需再添加一个文件：在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自WXEventActivity，内容不需要写。如下图：
 ![image](https://github.com/wandersnail/login-3rdparty/blob/master/screenshot/0d12b411b69c21f97460983f0e22280e5ec424032.jpg)
 
-## 示例
+## 示例apk下载
+![Download](https://github.com/wandersnail/login-3rdparty/blob/master/demo.apk)
+
+## 使用代码示例
 ```
 class MainActivity : AppCompatActivity() {
     private var requester: PermissionsRequester? = null
