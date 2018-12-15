@@ -2,13 +2,13 @@
 第三方登录库，集合微信、QQ、微博、百度、Twitter、Facebook
 
 ## 代码托管
-**Core**[![Core](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-core/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-core/_latestVersion)&nbsp;&nbsp;&nbsp;&nbsp;
-**QQ**[![QQ](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-qq/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-qq/_latestVersion)&nbsp;&nbsp;&nbsp;
-**微信**[![微信](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weixin/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weixin/_latestVersion)&nbsp;&nbsp;&nbsp;
-**微博**[![微博](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-weibo/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weibo/_latestVersion)&nbsp;&nbsp;&nbsp;
-**百度**[![百度](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-baidu/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-baidu/_latestVersion)&nbsp;&nbsp;&nbsp;
-**Twitter**[![Twitter](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-twitter/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-twitter/_latestVersion)&nbsp;&nbsp;&nbsp;
-**Facebook**[![Facebook](https://api.bintray.com/packages/wandersnail/android/login-3rdparty-facebook/images/download.svg)](https://bintray.com/wandersnail/android/login-3rdparty-facebook/_latestVersion)
+[![](https://img.shields.io/badge/core-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-core/_latestVersion)
+[![](https://img.shields.io/badge/qq-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-qq/_latestVersion)
+[![](https://img.shields.io/badge/weixin-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weixin/_latestVersion)
+[![](https://img.shields.io/badge/weibo-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weibo/_latestVersion)
+[![](https://img.shields.io/badge/baidu-1.0.1-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-baidu/_latestVersion)
+[![](https://img.shields.io/badge/twitter-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-twitter/_latestVersion)
+[![](https://img.shields.io/badge/facebook-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-facebook/_latestVersion)
 
 ## 使用
 
@@ -45,7 +45,7 @@ dependencies {
 	implementation 'com.github.wandersnail:login-3rdparty-qq:1.0.0'
 	implementation 'com.github.wandersnail:login-3rdparty-weixin:1.0.0'
 	implementation 'com.github.wandersnail:login-3rdparty-weibo:1.0.0'
-	implementation 'com.github.wandersnail:login-3rdparty-baidu:1.0.0'
+	implementation 'com.github.wandersnail:login-3rdparty-baidu:1.0.1'
 	implementation 'com.github.wandersnail:login-3rdparty-twitter:1.0.0'
 	implementation 'com.github.wandersnail:login-3rdparty-facebook:1.0.0'
 }
@@ -76,8 +76,7 @@ allprojects {
 ![image](https://github.com/wandersnail/login-3rdparty/blob/master/screenshot/0d12b411b69c21f97460983f0e22280e5ec424032.jpg)
 
 ## 示例apk下载
-[demo.apk](https://github.com/wandersnail/login-3rdparty/blob/master/demo.apk)
-
+[![](https://img.shields.io/badge/Download-APK-blue.svg)](https://github.com/wandersnail/login-3rdparty/blob/master/demo.apk)
 
 ## 使用代码示例
 ```
