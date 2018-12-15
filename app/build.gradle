@@ -47,25 +47,25 @@ android {
             }
         }
     }
-    signingConfigs {
-        debug {
-            //加载资源
-            Properties properties = new Properties()
-            InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
-            properties.load(inputStream)
-            //读取文件
-            def sdkDir = properties.getProperty('key.file')
-            storeFile file(sdkDir)
-            //读取字段
-            def key_keyAlias = properties.getProperty('keyAlias')
-            def key_keyPassword = properties.getProperty('keyPassword')
-            def key_storePassword = properties.getProperty('storePassword')
-
-            storePassword key_storePassword
-            keyAlias key_keyAlias
-            keyPassword key_keyPassword
-        }
-    }
+//    signingConfigs {
+//        debug {
+//            //加载资源
+//            Properties properties = new Properties()
+//            InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+//            properties.load(inputStream)
+//            //读取文件
+//            def sdkDir = properties.getProperty('key.file')
+//            storeFile file(sdkDir)
+//            //读取字段
+//            def key_keyAlias = properties.getProperty('keyAlias')
+//            def key_keyPassword = properties.getProperty('keyPassword')
+//            def key_storePassword = properties.getProperty('storePassword')
+//
+//            storePassword key_storePassword
+//            keyAlias key_keyAlias
+//            keyPassword key_keyPassword
+//        }
+//    }
 }
 
 dependencies {

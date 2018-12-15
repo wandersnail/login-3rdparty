@@ -57,6 +57,7 @@ allprojects {
 	repositories {
 		...
 		maven { url 'https://dl.bintray.com/wandersnail/android/' }
+		maven { url "https://dl.bintray.com/thelasterstar/maven/" }
 	}
 }
 ``` 
