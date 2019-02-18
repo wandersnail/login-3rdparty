@@ -23,7 +23,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly "com.android.support:appcompat-v7:$support_lib_version"
+    compileOnly "androidx.appcompat:appcompat:$appcompat_version"
 }
 
 // 打包源码

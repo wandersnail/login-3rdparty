@@ -3,7 +3,7 @@ package com.snail.login3rdparty.baidu;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.api.*;
 import com.snail.login3rdparty.BaseLogin;
 import com.snail.login3rdparty.LoginCallback;

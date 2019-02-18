@@ -1,6 +1,6 @@
 package com.snail.login3rdparty.qq;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.snail.login3rdparty.LoginCallback;
 
 /**

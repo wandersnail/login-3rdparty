@@ -19,23 +19,12 @@ android {
     lintOptions {
         abortOnError false
     }
-    //强制所有的第三方包使用指定版本的support包：
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'com.android.support') {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion "$support_lib_version"
-                }
-            }
-        }
-    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compileOnly "com.android.support:support-v4:$support_lib_version"
-    compileOnly "com.android.support:customtabs:$support_lib_version"
+    compileOnly "androidx.legacy:legacy-support-v4:$legacy_support_v4_version"
+    compileOnly 'androidx.browser:browser:1.0.0'
     implementation project(':core')
     implementation 'com.facebook.android:facebook-login:4.39.0'
 }

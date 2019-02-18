@@ -25,7 +25,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //http://jcenter.bintray.com/com/tencent/mm/opensdk/wechat-sdk-android-without-mta查询最新版本
     api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.1.6'
-    compileOnly "com.android.support:support-v4:$support_lib_version"
+    compileOnly "androidx.legacy:legacy-support-v4:$legacy_support_v4_version"
     compileOnly project(':core')
 }
 

@@ -1,6 +1,6 @@
 package com.snail.login3rdparty.weixin;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.snail.login3rdparty.LoginCallback;
 
 /**
