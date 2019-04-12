@@ -20,8 +20,7 @@ import java.lang.reflect.Field;
 
 /**
  * 时间: 2017/10/14 21:05
- * 作者: 曾繁盛
- * 邮箱: 43068145@qq.com
+ * 作者: zengfansheng
  * 功能: Twitter登录。
  */
 
