@@ -1,14 +1,8 @@
 # login-3rdparty
 第三方登录库，集合微信、QQ、微博、百度、Twitter、Facebook
 
-## 代码托管
-[![](https://img.shields.io/badge/core-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-core/_latestVersion)
-[![](https://img.shields.io/badge/qq-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-qq/_latestVersion)
-[![](https://img.shields.io/badge/weixin-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weixin/_latestVersion)
-[![](https://img.shields.io/badge/weibo-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-weibo/_latestVersion)
-[![](https://img.shields.io/badge/baidu-1.0.1-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-baidu/_latestVersion)
-[![](https://img.shields.io/badge/twitter-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-twitter/_latestVersion)
-[![](https://img.shields.io/badge/facebook-1.0.0-blue.svg)](https://bintray.com/wandersnail/android/login-3rdparty-facebook/_latestVersion)
+## 学习提高
+[![](https://img.shields.io/badge/下载-java、python、vue、js、c++等各种视频教程-blue.svg)](https://p.zhekou.life)
 
 ## 使用
 
